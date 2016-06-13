@@ -9,7 +9,7 @@ import java.util.Scanner;
 public class Cliente implements Runnable {
     private Socket cliente;
 
-    public Cliente(Socket cliente){
+    private Cliente(Socket cliente){
         this.cliente = cliente;
     }
 
@@ -42,7 +42,8 @@ public class Cliente implements Runnable {
                     System.out.println("Causa: " + ex.getMessage());
                 }
             }
-        } catch (IOException e) {
+        }
+        catch (IOException e) {
             System.out.println("Ops, ocorreu algum problema !");
             System.out.println("Causa: " + e.getMessage());
         }

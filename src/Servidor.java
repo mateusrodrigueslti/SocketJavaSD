@@ -9,19 +9,17 @@ import java.util.Scanner;
  */
 
 public class Servidor implements Runnable {
-    public Socket cliente;
+    private Socket cliente;
 
-    public Servidor (Socket socket){
+    private Servidor(Socket socket){
         this.cliente = socket;
     }
     public static void main(String[] args) {
 
         try {
             ServerSocket serverSocket = new ServerSocket(8100);
-
             while (true) {
                 Socket cliente = serverSocket.accept();
-
                 Servidor s = new Servidor(cliente);
                 Thread t = new Thread(s);
                 t.start();
